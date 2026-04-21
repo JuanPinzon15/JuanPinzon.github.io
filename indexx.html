@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Pinzon | Computer Science Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a2e;
+    }
+
+    /* NAV */
+    nav {
+      background: #1C3557;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul a {
+      color: #b0c4de;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: #ffffff; }
+
+    /* HERO */
+    .hero {
+      background: #1C3557;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem 5rem;
+    }
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2563EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 1.5rem;
+      border: 3px solid #4A90D9;
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .hero .subtitle {
+      font-size: 1rem;
+      color: #b0c4de;
+      margin-bottom: 1.4rem;
+    }
+    .hero .bio {
+      font-size: 15px;
+      color: #ccd6f6;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .btn {
+      padding: 9px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: #2563EB; color: #fff; border: none; }
+    .btn-outline { background: transparent; color: #b0c4de; border: 1.5px solid #4A90D9; }
+
+    /* SECTIONS */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2563EB;
+      margin-bottom: 1.4rem;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .project-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.4rem;
+      transition: box-shadow 0.2s;
+    }
+    .project-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .project-card .tag {
+      display: inline-block;
+      background: #EFF6FF;
+      color: #2563EB;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .project-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .project-card p { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 12px; }
+    .project-card a {
+      font-size: 13px;
+      color: #2563EB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .project-card a:hover { text-decoration: underline; }
+
+    /* COURSEWORK */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .course-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+    .course-card .code {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .course-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .course-card p { font-size: 12px; color: #64748b; line-height: 1.5; }
+
+    /* CONTACT */
+    .contact-wrapper {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 520px;
+    }
+    .contact-wrapper p { font-size: 14px; color: #64748b; margin-bottom: 1.4rem; line-height: 1.6; }
+    .contact-wrapper form { display: flex; flex-direction: column; gap: 12px; }
+    .contact-wrapper input,
+    .contact-wrapper textarea {
+      padding: 10px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #1a1a2e;
+      background: #f8f9fa;
+      resize: vertical;
+      font-family: inherit;
+    }
+    .contact-wrapper textarea { min-height: 100px; }
+    .contact-wrapper input:focus,
+    .contact-wrapper textarea:focus {
+      outline: none;
+      border-color: #2563EB;
+    }
+    .contact-wrapper button {
+      align-self: flex-start;
+      background: #2563EB;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .contact-links {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 1.4rem;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      font-size: 13px;
+      color: #2563EB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-links a:hover { text-decoration: underline; }
+
+    /* DIVIDER */
+    hr { border: none; border-top: 1px solid #e2e8f0; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">JP</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#coursework">Coursework</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="about">
+    <div class="avatar">JP</div>
+    <h1>Juan Pinzon</h1>
+    <p class="subtitle">Computer Science Student &nbsp;·&nbsp; York University</p>
+    <p class="bio">
+      I'm a Computer Science student at York University with a passion for building software and solving real-world problems through code.
+      I have experience in web development, application development, and data structures.
+      I enjoy working on collaborative projects and am actively seeking internship opportunities to grow my skills in the industry.
+      My goal is to build clean, efficient, and impactful applications.
+    </p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="resume.pdf" target="_blank">Resume (PDF)</a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
+      <a class="btn btn-outline" href="https://github.com/JuanPinzon15" target="_blank">GitHub</a>
+      <a class="btn btn-outline" href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-title">Projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <span class="tag">Web Development</span>
+        <h3>Sports Store App</h3>
+        <p>
+          A collaborative e-commerce web application for sporting goods — featuring soccer cleats and athletic socks.
+          Built with a team as part of CSC 313 Web Development.
+        </p>
+        <a href="https://github.com/JuanPinzon15" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <span class="tag">Coursework</span>
+        <h3>Programming Assignments</h3>
+        <p>
+          Collection of programming exercises and homework from CSC 213/223 — covering loops, functions, arrays, and object-oriented design.
+        </p>
+        <a href="https://github.com/JuanPinzon15" target="_blank">View Repositories →</a>
+      </div>
+
+      <div class="project-card">
+        <span class="tag">Coming Soon</span>
+        <h3>Future Project</h3>
+        <p>
+          More projects coming as I continue through the CS program. Check back during my Application Development and Capstone courses.
+        </p>
+        <a href="#contact">Get in touch →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- COURSEWORK -->
+  <section id="coursework">
+    <div class="section-title">Technical Coursework</div>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="code">CSC 123</div>
+        <h4>Intro to Computer Science</h4>
+        <p>Fundamentals of computing and problem-solving.</p>
+      </div>
+      <div class="course-card">
+        <div class="code">CSC 213 / 223</div>
+        <h4>Programming I & II</h4>
+        <p>Core programming concepts, OOP, data types, and algorithms.</p>
+      </div>
+      <div class="course-card">
+        <div class="code">CSC 313</div>
+        <h4>Web Development</h4>
+        <p>HTML, CSS, JavaScript, and building full web applications.</p>
+      </div>
+      <div class="course-card">
+        <div class="code">CSC 343</div>
+        <h4>Software Development</h4>
+        <p>Software lifecycle, design patterns, and team collaboration.</p>
+      </div>
+      <div class="course-card">
+        <div class="code">CSC 413 / 423</div>
+        <h4>App Development I & II</h4>
+        <p>Backend and frontend application development.</p>
+      </div>
+      <div class="course-card">
+        <div class="code">CSM 253</div>
+        <h4>Data Structures</h4>
+        <p>Lists, trees, graphs, stacks, queues, and complexity analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-title">Contact</div>
+    <div class="contact-wrapper">
+      <div class="contact-links">
+        <a href="https://github.com/JuanPinzon15" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
+        <a href="mailto:YOUR-EMAIL@york.edu">YOUR-EMAIL@york.edu</a>
+      </div>
+      <p>Feel free to reach out if you'd like to connect, collaborate, or just say hello!</p>
+      <form onsubmit="return false;">
+        <input type="text" placeholder="Your name" />
+        <input type="email" placeholder="Your email" />
+        <textarea placeholder="Your message..."></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Juan Pinzon · Computer Science Student at York University
+  </footer>
+
+</body>
+</html>
