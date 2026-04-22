@@ -6,390 +6,376 @@
   <title>Juan Pinzon | Computer Science Portfolio</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f9f6; color: #111; display: flex; min-height: 100vh; }
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8f9fa;
-      color: #1a1a2e;
-    }
-
-    /* NAV */
-    nav {
-      background: #1C3557;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 56px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav .logo {
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-    nav ul a {
-      color: #b0c4de;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-    nav ul a:hover { color: #ffffff; }
-
-    /* HERO */
-    .hero {
-      background: #1C3557;
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem 5rem;
-    }
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: #2563EB;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 38px;
-      font-weight: 700;
+    /* SIDEBAR */
+    .sidebar {
+      width: 280px;
+      min-width: 280px;
+      background: #0d3320;
       color: #fff;
-      margin: 0 auto 1.5rem;
-      border: 3px solid #4A90D9;
-      object-fit: cover;
-    }
-    .hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .hero .subtitle {
-      font-size: 1rem;
-      color: #b0c4de;
-      margin-bottom: 1.4rem;
-    }
-    .hero .bio {
-      font-size: 15px;
-      color: #ccd6f6;
-      max-width: 540px;
-      margin: 0 auto 2rem;
-      line-height: 1.8;
-    }
-    .hero-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.5rem;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      overflow-y: auto;
     }
-    .btn {
-      padding: 9px 22px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: opacity 0.2s;
-      cursor: pointer;
+    .sidebar .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #34d399;
+      margin-bottom: 1.2rem;
     }
-    .btn:hover { opacity: 0.85; }
-    .btn-primary { background: #2563EB; color: #fff; border: none; }
-    .btn-outline { background: transparent; color: #b0c4de; border: 1.5px solid #4A90D9; }
+    .sidebar h1 { font-size: 20px; font-weight: 700; text-align: center; margin-bottom: 4px; }
+    .sidebar .role { font-size: 12px; color: #6ee7b7; text-align: center; margin-bottom: 1.8rem; line-height: 1.5; }
 
-    /* SECTIONS */
-    section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
+    .sidebar-nav { width: 100%; margin-bottom: 2rem; }
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      color: #a7f3d0;
+      text-decoration: none;
+      font-size: 13px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      transition: background 0.2s, color 0.2s;
     }
-    .section-title {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #2563EB;
+    .sidebar-nav a:hover { background: #145c38; color: #fff; }
+    .sidebar-nav a .icon { margin-right: 10px; font-size: 14px; }
+
+    .sidebar-links { width: 100%; margin-top: auto; }
+    .sidebar-links a {
+      display: block;
+      padding: 8px 14px;
+      color: #6ee7b7;
+      text-decoration: none;
+      font-size: 12px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      border: 1px solid #1a5c38;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .sidebar-links a:hover { background: #145c38; color: #fff; }
+
+    /* MAIN */
+    .main {
+      margin-left: 280px;
+      flex: 1;
+      padding: 2.5rem 2.5rem 4rem;
+      max-width: 900px;
+    }
+
+    /* SECTION */
+    .section { margin-bottom: 3rem; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin-bottom: 1.4rem;
+    }
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0d3320;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: #a7f3d0;
+    }
+
+    /* BIO */
+    .bio-block {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #a7f3d0;
+      padding: 1.4rem 1.6rem;
+      font-size: 14px;
+      color: #2d4a38;
+      line-height: 1.8;
     }
 
     /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-    .project-card {
+    .project-item {
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #a7f3d0;
       border-radius: 10px;
-      padding: 1.4rem;
-      transition: box-shadow 0.2s;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
     }
-    .project-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-    .project-card .tag {
-      display: inline-block;
-      background: #EFF6FF;
-      color: #2563EB;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
+    .project-dot {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      border-radius: 50%;
+      background: #059669;
+      margin-top: 6px;
+    }
+    .project-content {}
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .project-content h3 { font-size: 15px; font-weight: 700; color: #0d3320; }
+    .project-tag {
+      font-size: 10px;
+      font-weight: 700;
+      background: #ecfdf5;
+      color: #065f46;
+      padding: 2px 9px;
       border-radius: 20px;
-      margin-bottom: 10px;
+      letter-spacing: 0.04em;
     }
-    .project-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .project-card p { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 12px; }
-    .project-card a {
-      font-size: 13px;
-      color: #2563EB;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .project-card a:hover { text-decoration: underline; }
+    .project-content p { font-size: 13px; color: #4b6e58; line-height: 1.6; }
 
-    /* COURSEWORK */
-    .courses-grid {
+    /* SKILLS */
+    .skills-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 12px;
     }
-    .course-card {
+    .skill-card {
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #a7f3d0;
+      border-top: 3px solid #059669;
       border-radius: 8px;
       padding: 1rem 1.2rem;
     }
-    .course-card .code {
-      font-size: 11px;
-      font-weight: 700;
-      color: #94a3b8;
-      letter-spacing: 0.06em;
-      margin-bottom: 4px;
+    .skill-card .skill-label { font-size: 10px; font-weight: 700; color: #059669; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .skill-card p { font-size: 12.5px; color: #2d4a38; line-height: 1.6; }
+
+    /* COURSEWORK */
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
     }
-    .course-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-    .course-card p { font-size: 12px; color: #64748b; line-height: 1.5; }
+    .course-item {
+      background: #fff;
+      border: 1px solid #a7f3d0;
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .course-code {
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      background: #059669;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .course-item h4 { font-size: 13px; font-weight: 600; color: #0d3320; margin-bottom: 2px; }
+    .course-item p { font-size: 11.5px; color: #4b6e58; line-height: 1.4; }
 
     /* CONTACT */
-    .contact-wrapper {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 520px;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
-    .contact-wrapper p { font-size: 14px; color: #64748b; margin-bottom: 1.4rem; line-height: 1.6; }
-    .contact-wrapper form { display: flex; flex-direction: column; gap: 12px; }
-    .contact-wrapper input,
-    .contact-wrapper textarea {
-      padding: 10px 14px;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      font-size: 14px;
-      color: #1a1a2e;
-      background: #f8f9fa;
-      resize: vertical;
-      font-family: inherit;
+    .contact-info {
+      background: #0d3320;
+      border-radius: 10px;
+      padding: 1.6rem;
+      color: #a7f3d0;
     }
-    .contact-wrapper textarea { min-height: 100px; }
-    .contact-wrapper input:focus,
-    .contact-wrapper textarea:focus {
-      outline: none;
-      border-color: #2563EB;
-    }
-    .contact-wrapper button {
-      align-self: flex-start;
-      background: #2563EB;
-      color: white;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .contact-links {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 1.4rem;
-      flex-wrap: wrap;
-    }
-    .contact-links a {
-      font-size: 13px;
-      color: #2563EB;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .contact-links a:hover { text-decoration: underline; }
+    .contact-info h3 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 1rem; }
+    .contact-info a { display: block; color: #6ee7b7; font-size: 13px; text-decoration: none; margin-bottom: 8px; }
+    .contact-info a:hover { color: #fff; }
+    .contact-form { background: #fff; border: 1px solid #a7f3d0; border-radius: 10px; padding: 1.6rem; display: flex; flex-direction: column; gap: 10px; }
+    .contact-form input, .contact-form textarea { padding: 9px 12px; border: 1px solid #a7f3d0; border-radius: 6px; font-size: 13px; color: #111; background: #f4f9f6; font-family: inherit; resize: vertical; }
+    .contact-form textarea { min-height: 90px; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #059669; }
+    .contact-form button { background: #059669; color: #fff; border: none; padding: 9px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; align-self: flex-start; }
 
-    /* DIVIDER */
-    hr { border: none; border-top: 1px solid #e2e8f0; }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 13px;
-      color: #94a3b8;
+    @media (max-width: 700px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; position: relative; }
+      .main { margin-left: 0; padding: 1.5rem; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">JP</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#coursework">Coursework</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero" id="about">
-    <img class="avatar" src="foto.jpeg" alt="Juan Pinzon" style="object-fit: cover;" />
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <img class="avatar" src="foto.jpeg" alt="Juan Pinzon" />
     <h1>Juan Pinzon</h1>
-    <p class="subtitle">Computer Science Student &nbsp;·&nbsp; York University</p>
-    <p class="bio">
-      Junior-level software developer proficient in Python and Java, with hands-on experience building real-world web applications for clients and academic team projects.
-      Currently pursuing a Bachelor of Science in Computer Science at York University.
-      Comfortable across the full development lifecycle — from requirements gathering to deployment.
-      Collaborative, detail-oriented, and driven to keep growing as a developer.
-    </p>
-    <div class="hero-links">
-      <a class="btn btn-primary" href="resume.pdf" target="_blank">Resume (PDF)</a>
-      <a class="btn btn-outline" href="https://www.linkedin.com/in/juan-pinzon-786aa4322/" target="_blank">LinkedIn</a>
-      <a class="btn btn-outline" href="https://github.com/JuanPinzon15" target="_blank">GitHub</a>
-      <a class="btn btn-outline" href="#contact">Contact</a>
+    <p class="role">Computer Science Student<br/>York University · York, NE</p>
+
+    <nav class="sidebar-nav">
+      <a href="#about"><span class="icon">▸</span> About</a>
+      <a href="#projects"><span class="icon">▸</span> Projects</a>
+      <a href="#skills"><span class="icon">▸</span> Skills</a>
+      <a href="#coursework"><span class="icon">▸</span> Coursework</a>
+      <a href="#contact"><span class="icon">▸</span> Contact</a>
+    </nav>
+
+    <div class="sidebar-links">
+      <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+      <a href="https://www.linkedin.com/in/juan-pinzon-786aa4322/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/JuanPinzon15" target="_blank">GitHub</a>
     </div>
-  </div>
+  </aside>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-title">Projects</div>
-    <div class="projects-grid">
+  <!-- MAIN CONTENT -->
+  <main class="main">
 
-      <div class="project-card">
-        <span class="tag">Freelance · 2025</span>
-        <h3>Small Business Website</h3>
-        <p>
-          Designed and built a complete website for a family business from requirements through launch.
-          Translated client needs into a functional, user-friendly web experience — gaining practical product development skills.
-        </p>
+    <!-- ABOUT -->
+    <div class="section" id="about">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <div class="section-line"></div>
       </div>
-
-      <div class="project-card">
-        <span class="tag">Academic Team Project · 2025</span>
-        <h3>E-Commerce Sporting Goods Website</h3>
-        <p>
-          Collaborated with classmates to develop a full-stack e-commerce platform for selling sporting goods online.
-          Implemented application logic in Python and Java; applied version control and collaborative development best practices.
-        </p>
-      </div>
-
-      <div class="project-card">
-        <span class="tag">Coming Soon</span>
-        <h3>Future Projects</h3>
-        <p>
-          More projects coming as I continue through the CS program — including Application Development and the Capstone Project.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr />
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-title">Technical Skills</div>
-    <div class="courses-grid">
-      <div class="course-card">
-        <div class="code">Languages</div>
-        <h4>Python · Java · HTML · CSS</h4>
-        <p>Proficient in Python and Java for application and web development.</p>
-      </div>
-      <div class="course-card">
-        <div class="code">Concepts</div>
-        <h4>OOP · Web Apps · Software Lifecycle</h4>
-        <p>Object-oriented programming, web application development, e-commerce.</p>
-      </div>
-      <div class="course-card">
-        <div class="code">Tools</div>
-        <h4>Git · VS Code · Browser Dev Tools</h4>
-        <p>Version control, online IDEs, and collaborative development workflows.</p>
-      </div>
-      <div class="course-card">
-        <div class="code">Soft Skills</div>
-        <h4>Team Collaboration · Communication</h4>
-        <p>Client communication, problem-solving, and attention to detail.</p>
+      <div class="bio-block">
+        Junior-level software developer proficient in Python and Java, with hands-on experience building real-world web applications for clients and academic team projects.
+        Currently pursuing a Bachelor of Science in Computer Science at York University.
+        Comfortable across the full development lifecycle — from requirements gathering to deployment.
+        Collaborative, detail-oriented, and driven to keep growing as a developer.
       </div>
     </div>
-  </section>
 
-  <hr />
-  <section id="coursework">
-    <div class="section-title">Technical Coursework</div>
-    <div class="courses-grid">
-      <div class="course-card">
-        <div class="code">CSC 123</div>
-        <h4>Intro to Computer Science</h4>
-        <p>Fundamentals of computing and problem-solving.</p>
+    <!-- PROJECTS -->
+    <div class="section" id="projects">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <div class="section-line"></div>
       </div>
-      <div class="course-card">
-        <div class="code">CSC 213 / 223</div>
-        <h4>Programming I & II</h4>
-        <p>Core programming concepts, OOP, data types, and algorithms.</p>
+
+      <div class="project-item">
+        <div class="project-dot"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <h3>Small Business Website</h3>
+            <span class="project-tag">Freelance · 2025</span>
+          </div>
+          <p>Designed and built a complete website for a family business from requirements through launch. Translated client needs into a functional, user-friendly web experience — gaining practical product development skills.</p>
+        </div>
       </div>
-      <div class="course-card">
-        <div class="code">CSC 313</div>
-        <h4>Web Development</h4>
-        <p>HTML, CSS, JavaScript, and building full web applications.</p>
+
+      <div class="project-item">
+        <div class="project-dot"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <h3>E-Commerce Sporting Goods Website</h3>
+            <span class="project-tag">Academic Team · 2025</span>
+          </div>
+          <p>Collaborated with classmates to develop a full-stack e-commerce platform for selling sporting goods online. Implemented application logic in Python and Java; applied version control and collaborative development best practices throughout.</p>
+        </div>
       </div>
-      <div class="course-card">
-        <div class="code">CSC 343</div>
-        <h4>Software Development</h4>
-        <p>Software lifecycle, design patterns, and team collaboration.</p>
-      </div>
-      <div class="course-card">
-        <div class="code">CSC 413 / 423</div>
-        <h4>App Development I & II</h4>
-        <p>Backend and frontend application development.</p>
-      </div>
-      <div class="course-card">
-        <div class="code">CSM 253</div>
-        <h4>Data Structures</h4>
-        <p>Lists, trees, graphs, stacks, queues, and complexity analysis.</p>
+
+      <div class="project-item">
+        <div class="project-dot" style="background:#a7f3d0;"></div>
+        <div class="project-content">
+          <div class="project-meta">
+            <h3>Future Projects</h3>
+            <span class="project-tag" style="background:#f0fdf4;color:#166534;">Coming Soon</span>
+          </div>
+          <p>More projects coming as I continue through the CS program — including Application Development and the Capstone Project.</p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <hr />
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-title">Contact</div>
-    <div class="contact-wrapper">
-      <div class="contact-links">
-        <a href="https://github.com/JuanPinzon15" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/juan-pinzon-786aa4322/" target="_blank">LinkedIn</a>
-        <a href="mailto:jdpinzon@york.edu">jdpinzon@york.edu</a>
+    <!-- SKILLS -->
+    <div class="section" id="skills">
+      <div class="section-header">
+        <h2>Technical Skills</h2>
+        <div class="section-line"></div>
       </div>
-      <p>Feel free to reach out if you'd like to connect, collaborate, or just say hello!</p>
-      <form onsubmit="return false;">
-        <input type="text" placeholder="Your name" />
-        <input type="email" placeholder="Your email" />
-        <textarea placeholder="Your message..."></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <div class="skills-row">
+        <div class="skill-card">
+          <div class="skill-label">Languages</div>
+          <p>Python · Java · HTML · CSS</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-label">Concepts</div>
+          <p>OOP · Web Apps · Software Lifecycle · E-Commerce</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-label">Tools</div>
+          <p>Git · VS Code · Online IDEs · Browser Dev Tools</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-label">Soft Skills</div>
+          <p>Team Collaboration · Client Communication · Problem-Solving</p>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    © 2026 Juan Pinzon · Computer Science Student at York University
-  </footer>
+    <!-- COURSEWORK -->
+    <div class="section" id="coursework">
+      <div class="section-header">
+        <h2>Technical Coursework</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="course-list">
+        <div class="course-item">
+          <span class="course-code">CSC 123</span>
+          <div><h4>Intro to Computer Science</h4><p>Fundamentals of computing and problem-solving.</p></div>
+        </div>
+        <div class="course-item">
+          <span class="course-code">CSC 213/223</span>
+          <div><h4>Programming I & II</h4><p>Core concepts, OOP, data types, and algorithms.</p></div>
+        </div>
+        <div class="course-item">
+          <span class="course-code">CSC 313</span>
+          <div><h4>Web Development</h4><p>HTML, CSS, JavaScript, full web applications.</p></div>
+        </div>
+        <div class="course-item">
+          <span class="course-code">CSC 343</span>
+          <div><h4>Software Development</h4><p>Software lifecycle, design patterns, team work.</p></div>
+        </div>
+        <div class="course-item">
+          <span class="course-code">CSC 413/423</span>
+          <div><h4>App Development I & II</h4><p>Backend and frontend application development.</p></div>
+        </div>
+        <div class="course-item">
+          <span class="course-code">CSM 253</span>
+          <div><h4>Data Structures</h4><p>Lists, trees, graphs, stacks, and complexity.</p></div>
+        </div>
+      </div>
+    </div>
 
+    <!-- CONTACT -->
+    <div class="section" id="contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in touch</h3>
+          <a href="mailto:jdpinzon@york.edu">jdpinzon@york.edu</a>
+          <a href="https://www.linkedin.com/in/juan-pinzon-786aa4322/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/JuanPinzon15" target="_blank">GitHub</a>
+          <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+        </div>
+        <div class="contact-form">
+          <input type="text" placeholder="Your name" />
+          <input type="email" placeholder="Your email" />
+          <textarea placeholder="Your message..."></textarea>
+          <button type="submit">Send Message</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
 </body>
 </html>
