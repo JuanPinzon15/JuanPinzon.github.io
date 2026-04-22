@@ -44,7 +44,7 @@ Exercises and homework from my Programming I & II courses covering core CS conce
 
 ## Links
 
-- 🌐 **Landing Page:** [Add your GitHub Pages or Notion URL here]
+- 🌐 **Landing Page:** [[Add your GitHub Pages or Notion URL here]](https://juanpinzon15.github.io/JuanPinzon.github.io)
 - 💼 **LinkedIn:** [Add your LinkedIn URL here]
 - 📄 **Resume:** See `resume.pdf` in this repository
 
