@@ -1,7 +1,5 @@
 # Juan Pinzon — Portfolio
 
-> **Note:** This is an early-stage portfolio that will continue to grow throughout my studies and career.
-
 Hi! I'm **Juan Pinzon**, a Computer Science student at York University. This repository contains samples of my technical work, coursework, and projects.
 
 ---
