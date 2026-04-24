@@ -11,7 +11,6 @@ Hi! I'm **Juan Pinzon**, a Computer Science student at York University. This rep
 | `resume.pdf` | My current resume |
 | `sports-store-app/` | Team web app project from Web Development (CSC 313) |
 | `coursework/` | Programming assignments and exercises |
-| `README.md` | This file |
 
 ---
 
