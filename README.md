@@ -45,7 +45,7 @@ Exercises and homework from my Programming I & II courses covering core CS conce
 ## Links
 
 - 🌐 **Landing Page:** https://juanpinzon15.github.io/JuanPinzon.github.io
-- 💼 **LinkedIn:** [Add your LinkedIn URL here]
+- 💼 **LinkedIn:** https://www.linkedin.com/in/juan-pinzon-786aa4322/
 - 📄 **Resume:** See `resume.pdf` in this repository
 
 ---
